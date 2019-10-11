@@ -1,0 +1,36 @@
+{
+  "name": "loading-overlay",
+  "version": "1.0.0",
+  "description": "Easy and beautiful way to display loading overlay in your application.",
+  "keywords": [
+    "loading overlay",
+    "ajax loading",
+    "page loading overlay"
+  ],
+  "main": "dist/loading-overlay.js",
+  "devDependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/plugin-transform-classes": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/runtime": "^7.6.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.9.0",
+    "request": "^2.88.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-coverage": "jest --coverage",
+    "dev": "webpack --mode development --watch",
+    "prod": "webpack -p --mode production"
+  },
+  "author": "Muhammad Faiz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bnb/metaverse.git"
+  },
+  "license": "ISC"
+}

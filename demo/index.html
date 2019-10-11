@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Loading Overlay Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div id="show-overlay" class="btn btn-primary">
+                Show Loading Overlay
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="../dist/loading-overlay.js"></script>
+<script>
+    document.getElementById('show-overlay').onclick = function(event) {
+        event.preventDefault();
+        LoadingOverlay.show({
+            'overlayBackgroundColor': '#666666',
+            'overlayOpacity': 0.6,
+            'spinnerIcon': 'pacman',
+            'spinnerColor': '#000',
+            'spinnerSize': '2x',
+            'overlayIDName': 'overlay-wrapper',
+            'spinnerIDName': 'spinner-wrapper'
+        });
+
+        // setTimeout(function () {
+        //     LoadingOverlay.hide();
+        // }, 1000);
+    };
+</script>
+</body>
+</html>
