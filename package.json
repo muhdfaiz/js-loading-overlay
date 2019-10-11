@@ -1,6 +1,6 @@
 {
-  "name": "loading-overlay",
-  "version": "1.0.0",
+  "name": "js-loading-overlay",
+  "version": "1.0.1",
   "description": "Easy and beautiful way to display loading overlay in your application.",
   "keywords": [
     "loading overlay",
@@ -10,11 +10,13 @@
     "loading",
     "ajax"
   ],
-  "main": "dist/loading-overlay.js",
+  "main": "dist/js-loading-overlay.js",
   "devDependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.5.0",
     "@babel/plugin-transform-classes": "^7.5.5",
+    "@babel/plugin-transform-modules-amd": "^7.5.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/runtime": "^7.6.3",
     "babel-jest": "^24.9.0",

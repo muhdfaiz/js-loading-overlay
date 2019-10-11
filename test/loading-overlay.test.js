@@ -1,11 +1,17 @@
-const LoadingOverlay = require('../src/loading-overlay');
-
-let loadingOverlay;
+const loadingOverlay = require('../src/js-loading-overlay');
 
 beforeEach(() => {
-    loadingOverlay = new LoadingOverlay();
     document.body.innerHTML = '';
     document.head.innerHTML = '';
+    loadingOverlay.options = {
+        'overlayBackgroundColor': '#666666',
+        'overlayOpacity': 0.6,
+        'spinnerIcon': 'ball-circus',
+        'spinnerColor': '#000',
+        'spinnerSize': '3x',
+        'overlayIDName': 'overlay',
+        'spinnerIDName': 'spinner'
+    };
 });
 
 describe('generateEmptyDivElement function', () => {

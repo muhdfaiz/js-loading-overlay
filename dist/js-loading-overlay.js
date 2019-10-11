@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/loading-overlay.js":
-/*!********************************!*\
-  !*** ./src/loading-overlay.js ***!
-  \********************************/
+/***/ "./src/js-loading-overlay.js":
+/*!***********************************!*\
+  !*** ./src/js-loading-overlay.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -99,11 +99,11 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var LoadingOverlay =
+var JSLoadingOverlay =
 /*#__PURE__*/
 function () {
-  function LoadingOverlay() {
-    _classCallCheck(this, LoadingOverlay);
+  function JSLoadingOverlay() {
+    _classCallCheck(this, JSLoadingOverlay);
 
     this.options = {
       'overlayBackgroundColor': '#666666',
@@ -180,7 +180,7 @@ function () {
    */
 
 
-  _createClass(LoadingOverlay, [{
+  _createClass(JSLoadingOverlay, [{
     key: "show",
     value: function show(options) {
       // Override default options if options parameter exist.
@@ -301,25 +301,25 @@ function () {
     }
   }]);
 
-  return LoadingOverlay;
+  return JSLoadingOverlay;
 }();
 
-window.LoadingOverlay = new LoadingOverlay();
-module.exports = LoadingOverlay;
+window.JsLoadingOverlay = new JSLoadingOverlay();
+module.exports = JsLoadingOverlay;
 
 /***/ }),
 
 /***/ 0:
-/*!**************************************!*\
-  !*** multi ./src/loading-overlay.js ***!
-  \**************************************/
+/*!*****************************************!*\
+  !*** multi ./src/js-loading-overlay.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/loading-overlay.js */"./src/loading-overlay.js");
+module.exports = __webpack_require__(/*! ./src/js-loading-overlay.js */"./src/js-loading-overlay.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=loading-overlay.js.map
+//# sourceMappingURL=js-loading-overlay.js.map

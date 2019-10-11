@@ -1,4 +1,4 @@
-class LoadingOverlay
+class JSLoadingOverlay
 {
     constructor() {
         this.options = {
@@ -28,7 +28,7 @@ class LoadingOverlay
             'ball-grid-beat': 9,
             'ball-grid-pulse': 9,
             'ball-newton-cradle': 4,
-            'ball-pulse-': 3,
+            'ball-pulse': 3,
             'ball-pulse-rise': 5,
             'ball-pulse-sync': 3,
             'ball-rotate': 1,
@@ -187,6 +187,6 @@ class LoadingOverlay
     }
 }
 
-window.LoadingOverlay = new LoadingOverlay();
+window.JsLoadingOverlay = new JSLoadingOverlay();
 
-module.exports = LoadingOverlay;
+module.exports = JsLoadingOverlay;

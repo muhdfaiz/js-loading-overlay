@@ -10,10 +10,10 @@ module.exports = (env, options) => {
     return {
         devtool: "source-map",
         target: "async-node",
-        entry: ["./src/loading-overlay.js"],
+        entry: ["./src/js-loading-overlay.js"],
         output: {
-            filename: options.mode == 'developement' ? "dist/loading-overlay.js" : "dist/loading-overlay.min.js",
-            path: path.resolve(__dirname, '')
+            filename: options.mode == 'development' ? "dist/js-loading-overlay.js" : "dist/js-loading-overlay.min.js",
+            path: path.resolve(__dirname, ''),
         },
         module: {
             rules: [{
