@@ -99,10 +99,24 @@ timer
 triangle-skew-spin
 ```
 
-### Show loading overlay
+### Show loading overlay with default options
 
 ```markdown
 JsLoadingOverlay.show();
+```
+
+### Show loading overlay with custom options
+
+```markdown
+JsLoadingOverlay.show({
+  'overlayBackgroundColor': '#666666',
+  'overlayOpacity': 0.6,
+  'spinnerIcon': 'ball-atom',
+  'spinnerColor': '#000',
+  'spinnerSize': '2x',
+  'overlayIDName': 'overlay',
+  'spinnerIDName': 'spinner',
+});
 ```
 
 ### Hide Loading Overlay
