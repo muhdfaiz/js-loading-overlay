@@ -7,11 +7,15 @@ JS loading overlay using awesome spinner from [Load Awesome](https://github.dani
 
 ### How To Install
 ```markdown
+NPM
 npm install --save js-loading-overlay
+
+Yarn
+yarn add js-loading-overlay
 ```
 
 ### Demo
-
+- [https://muhdfaiz.github.io/js-loading-overlay/](https://muhdfaiz.github.io/js-loading-overlay/)
 
 ### List Of Available Spinner
 - See [Load Awesome Website](https://github.danielcardoso.net/load-awesome/animations.html) 

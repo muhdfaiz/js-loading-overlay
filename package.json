@@ -10,7 +10,7 @@
     "loading",
     "ajax"
   ],
-  "main": "dist/js-loading-overlay.js",
+  "main": "dist/js-loading-overlayyar.js",
   "devDependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.5.0",
     "@babel/plugin-transform-classes": "^7.5.5",
@@ -34,9 +34,7 @@
     "prod": "webpack -p --mode production"
   },
   "author": "Muhammad Faiz <muhdfaizhalim@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/muhdfaiz/js-loading-overlay.git"
-  },
-  "license": "MIT"
+  "repository": "https://github.com/muhdfaiz/js-loading-overlay.git",
+  "license": "MIT",
+  "private": false
 }
