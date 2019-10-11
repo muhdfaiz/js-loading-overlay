@@ -17,6 +17,17 @@ yarn add js-loading-overlay
 ### Demo
 - [https://muhdfaiz.github.io/js-loading-overlay/](https://muhdfaiz.github.io/js-loading-overlay/)
 
+### How To Use
+```markdown
+import 'js-loading-overlay'
+JsLoadingOverlay.show({'spinnerIcon': 'triangle-skew-spin'});
+
+or
+
+<script src="js-loading-overlay.min.js"></script>
+JsLoadingOverlay.show({'spinnerIcon': 'triangle-skew-spin'});
+```
+
 ### List Of Available Spinner
 - See [Load Awesome Website](https://github.danielcardoso.net/load-awesome/animations.html) 
 - For example if you want to use `Ball Atom` spinner. Set `spinnerIcon` in options to `ball-atom`. Name of the icon must 
