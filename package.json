@@ -5,7 +5,10 @@
   "keywords": [
     "loading overlay",
     "ajax loading",
-    "page loading overlay"
+    "page loading overlay",
+    "overlay",
+    "loading",
+    "ajax"
   ],
   "main": "dist/loading-overlay.js",
   "devDependencies": {
@@ -23,14 +26,14 @@
   },
   "scripts": {
     "test": "jest",
-    "test-coverage": "jest --coverage",
+    "test-coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "dev": "webpack --mode development --watch",
     "prod": "webpack -p --mode production"
   },
-  "author": "Muhammad Faiz",
+  "author": "Muhammad Faiz <muhdfaizhalim@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bnb/metaverse.git"
+    "url": "https://github.com/muhdfaiz/js-loading-overlay.git"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
