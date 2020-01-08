@@ -3,3 +3,5 @@ node_modules
 .idea
 npm-debug.log
 coverage
+.gitignore
+.directory

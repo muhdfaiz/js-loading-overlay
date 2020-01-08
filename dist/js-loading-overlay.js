@@ -132,7 +132,7 @@ function () {
       'ball-grid-beat': 9,
       'ball-grid-pulse': 9,
       'ball-newton-cradle': 4,
-      'ball-pulse-': 3,
+      'ball-pulse': 3,
       'ball-pulse-rise': 5,
       'ball-pulse-sync': 3,
       'ball-rotate': 1,
@@ -230,7 +230,7 @@ function () {
   }, {
     key: "generateOverlayElement",
     value: function generateOverlayElement() {
-      return "<div id=\"".concat(this.options.overlayIDName, "\" style=\"display: block !important; position: fixed; top: 0; left: 0; opacity: ").concat(this.options.overlayOpacity, "; background: ").concat(this.options.overlayBackgroundColor, "; z-index: 50; width: 100%; height: 100%;\"></div><div id=\"").concat(this.options.spinnerIDName, "\" style=\"display: block !important; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;\">").concat(this.spinner, "</div>");
+      return "<div id=\"".concat(this.options.overlayIDName, "\" style=\"display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ").concat(this.options.overlayOpacity, "; background: ").concat(this.options.overlayBackgroundColor, "; z-index: 50; width: 100%; height: 100%;\"></div><div id=\"").concat(this.options.spinnerIDName, "\" style=\"display: block !important; position: fixed; top: 50%; left: 50%; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;\">").concat(this.spinner, "</div>");
     }
     /**
      * Generate spinner html element. Spinner html element must follow template from https://github.danielcardoso.net/load-awesome/

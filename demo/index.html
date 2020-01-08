@@ -14,6 +14,13 @@
             <h4 class="mt-3 text-center">Click any button below to show the loading overlay.</h4>
         </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h4>List Of Spinner Icons</h4>
+        </div>
+    </div>
+
     <div class="row mt-5">
         <div class="col-6 col-md-3 col-lg-2 mb-5">
             <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'ball-8bits'});">
@@ -339,10 +346,135 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h4>Custom Overlay Background Color</h4>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'overlayBackgroundColor': '#07ec8a'});">
+                Green Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'overlayBackgroundColor': '#ec3600'});">
+                Red Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'overlayBackgroundColor': '#0068ec'});">
+                Blue Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'overlayBackgroundColor': '#ecea3a'});">
+                Yellow Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'overlayBackgroundColor': '#ec6f00'});">
+                Orange Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'overlayBackgroundColor': '#ec21a8'});">
+                Pink Color
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h4>Custom Spinner Color</h4>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerColor': '#07ec8a'});">
+                Green Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerColor': '#ec3600'});">
+                Red Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerColor': '#0068ec'});">
+                Blue Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerColor': '#ecea3a'});">
+                Yellow Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerColor': '#ec6f00'});">
+                Orange Color
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerColor': '#ec21a8'});">
+                Pink Color
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h4>Custom Spinner Size</h4>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerSize': '1x'});">
+                Small Size
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerSize': '2x'});">
+                2x size
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerSize': '3x'});">
+                3x size
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="../dist/js-loading-overlay.min.js"></script>
+<script>
+    document.addEventListener('click',function(e){
+        if(e.target && e.target.id == 'overlay'){
+            JsLoadingOverlay.hide();
+        }
+        if(e.target && e.target.id == 'spinner'){
+            alert('asdsad');
+            JsLoadingOverlay.hide();
+        }
+    });
+</script>
 </body>
 </html>

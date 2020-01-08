@@ -123,7 +123,7 @@ class JSLoadingOverlay
      * @returns {string}
      */
     generateOverlayElement() {
-        return `<div id="${this.options.overlayIDName}" style="display: block !important; position: fixed; top: 0; left: 0; opacity: ${this.options.overlayOpacity}; background: ${this.options.overlayBackgroundColor}; z-index: 50; width: 100%; height: 100%;"></div><div id="${this.options.spinnerIDName}" style="display: block !important; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;">${this.spinner}</div>`
+        return `<div id="${this.options.overlayIDName}" style="display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ${this.options.overlayOpacity}; background: ${this.options.overlayBackgroundColor}; z-index: 50; width: 100%; height: 100%;"></div><div id="${this.options.spinnerIDName}" style="display: block !important; position: fixed; top: 50%; left: 50%; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;">${this.spinner}</div>`
     }
 
     /**
