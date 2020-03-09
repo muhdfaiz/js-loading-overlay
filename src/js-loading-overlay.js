@@ -94,11 +94,13 @@ class JSLoadingOverlay
 
     hide() {
         var stylesheet = document.getElementById('loading-overlay-stylesheet');
-        stylesheet.disabled = true;
-        stylesheet.parentNode.removeChild(stylesheet);
+          if (stylesheet !== null) {
+            stylesheet.disabled = true;
+            stylesheet.parentNode.removeChild(stylesheet);
 
-        document.getElementById(this.options.overlayIDName).remove();
-        document.getElementById(this.options.spinnerIDName).remove();
+            document.getElementById(this.options.overlayIDName).remove();
+            document.getElementById(this.options.spinnerIDName).remove();
+        }
     }
 
     /**
