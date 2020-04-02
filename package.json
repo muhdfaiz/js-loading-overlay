@@ -10,7 +10,7 @@
     "loading",
     "ajax"
   ],
-  "main": "dist/js-loading-overlayyar.js",
+  "main": "dist/js-loading-overlay.min.js",
   "devDependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.5.0",
     "@babel/plugin-transform-classes": "^7.5.5",
