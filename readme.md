@@ -3,7 +3,7 @@
 JS loading overlay using awesome spinner from [Load Awesome](https://github.danielcardoso.net/load-awesome/animations.html). It contains 52 spinner you can choose.
 
 ### Build and Coverage Status
-[![Coverage Status](https://coveralls.io/repos/github/muhdfaiz/js-loading-overlay/badge.svg?branch=master)](https://coveralls.io/github/muhdfaiz/js-loading-overlay?branch=master) [![Build Status](https://travis-ci.org/muhdfaiz/js-loading-overlay.svg?branch=master)](https://travis-ci.org/taniarascia/chip8)
+[![Coverage Status](https://coveralls.io/repos/github/muhdfaiz/js-loading-overlay/badge.svg?branch=master)](https://coveralls.io/github/muhdfaiz/js-loading-overlay?branch=master) [![Build Status](https://travis-ci.org/muhdfaiz/js-loading-overlay.svg?branch=master)](https://travis-ci.org/muhdfaiz/js-loading-overlay.svg?branch=master)
 
 ### How To Install
 ```markdown
