@@ -230,6 +230,20 @@ describe('hide function', () => {
         expect(document.getElementById(loadingOverlay.options.spinnerIDName)).toBeNull();
         expect(document.getElementsByTagName('link').length).toEqual(0);
     });
+
+    test('It should not return an error when the loading overlay not shown.', () => {
+        let defaultOptions = {
+            'overlayBackgroundColor': '#666666',
+            'overlayOpacity': 0.6,
+            'spinnerIcon': 'ball-circus',
+            'spinnerColor': '#000',
+            'spinnerSize': '3x',
+            'overlayIDName': 'overlay',
+            'spinnerIDName': 'spinner'
+        };
+
+        loadingOverlay.hide();
+    });
 });
 
 describe('show function', () => {

@@ -1,6 +1,6 @@
 {
   "name": "js-loading-overlay",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Easy and beautiful way to display loading overlay in your application.",
   "keywords": [
     "loading overlay",
@@ -21,7 +21,7 @@
     "@babel/runtime": "^7.6.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "coveralls": "^3.0.7",
+    "coveralls": "^3.1.0",
     "jest": "^24.9.0",
     "request": "^2.88.0",
     "webpack": "^4.39.2",
