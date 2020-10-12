@@ -29,7 +29,8 @@
   },
   "scripts": {
     "test": "jest",
-    "test-coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "test-coverage": "jest --coverage",
+    "coverage": "coveralls < coverage/lcov.info",
     "dev": "webpack --mode development --watch",
     "prod": "webpack -p --mode production"
   },
