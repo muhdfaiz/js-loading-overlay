@@ -23,7 +23,7 @@
 
     <div class="row mt-5">
         <div class="col-6 col-md-3 col-lg-2 mb-5">
-            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'ball-8bits'});">
+            <div id="test" class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'ball-8bits', 'offsetX': '-30px', 'containerID': 'test', 'spinnerSize': '1x'});">
                 ball-8bits
             </div>
         </div>
@@ -460,19 +460,113 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h4>Offset Spinner Position</h4>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'offsetX': '-10%'});">
+                Offset X
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'offsetY': '20%'});">
+                Offset Y
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h4>Show loading overlay within the container</h4>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-4">
+            <div id="table">
+                <h4>Sample Table</h4>
+                <table class="table">
+                    <tr>
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr>
+                        <td>Company 1</td>
+                        <td>Muhammad</td>
+                        <td>Malaysia</td>
+                    </tr>
+                    <tr>
+                        <td>Company 2</td>
+                        <td>Faiz</td>
+                        <td>Thailand</td>
+                    </tr>
+                    <tr>
+                        <td>Company 3</td>
+                        <td>Halim</td>
+                        <td>Indonesia</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'offsetY': '-12%', 'containerID': 'table', 'spinnerSize': '2x'});">
+                Inside the table
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div id="card" class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" style="color: white">Go somewhere</a>
+                </div>
+            </div>
+
+            <div class="mt-5 btn btn-primary" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'offsetY': '-5%', 'containerID': 'card', 'spinnerSize': '1x', 'lockScroll': true});">
+                Inside Card
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="../dist/js-loading-overlay.min.js"></script>
+<script src="../dist/js-loading-overlay.js"></script>
 <script>
     document.addEventListener('click',function(e){
+    	let defaultOptions = {
+		    'overlayBackgroundColor': '#666666',
+		    'overlayOpacity': 0.6,
+		    'spinnerIcon': 'ball-circus',
+		    'spinnerColor': '#000',
+		    'spinnerSize': '3x',
+		    'overlayIDName': 'overlay',
+		    'spinnerIDName': 'spinner',
+		    'offsetY': 0,
+		    'offsetX': 0,
+		    'lockScroll': false,
+		    'containerID': null,
+        };
+
+    	if (e.target.contains(document.getElementById('overlay'))) {
+		    JsLoadingOverlay.hide();
+		    JsLoadingOverlay.setOptions(defaultOptions);
+        }
+
         if(e.target && e.target.id == 'overlay'){
             JsLoadingOverlay.hide();
+            JsLoadingOverlay.setOptions(defaultOptions);
         }
         if(e.target && e.target.id == 'spinner'){
-            alert('asdsad');
             JsLoadingOverlay.hide();
+	        JsLoadingOverlay.setOptions(defaultOptions);
         }
     });
 </script>

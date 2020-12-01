@@ -9,6 +9,10 @@ class JSLoadingOverlay
             'spinnerSize': '3x',
             'overlayIDName': 'overlay',
             'spinnerIDName': 'spinner',
+            'offsetY': 0,
+            'offsetX': 0,
+            'lockScroll': false,
+            'containerID': null,
         };
         this.stylesheetBaseURL = 'https://cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/';
         this.spinner = null;
@@ -68,6 +72,10 @@ class JSLoadingOverlay
             'timer' : 1,
             'triangle-skew-spin' : 1,
         }
+
+        this.originalBodyPosition = '';
+        this.originalBodyTop = '';
+        this.originalBodywidth = '';
     }
 
     /**
@@ -85,14 +93,22 @@ class JSLoadingOverlay
         // Generate spinner html element.
         this.generateSpinnerElement();
 
-        // Generate overlay html element.
-        let loadingOverlay = this.generateOverlayElement();
+        if (this.options.lockScroll) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        }
 
-        // Insert the overlay html element in body.
-        document.body.insertAdjacentHTML("beforeend", loadingOverlay);
+        // Generate overlay html element in full page.
+        this.generateAndAddOverlayElement();
     }
 
     hide() {
+        // Unlock scroll.
+        if (this.options.lockScroll) {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
         var stylesheet = document.getElementById('loading-overlay-stylesheet');
 
         if (stylesheet) {
@@ -118,15 +134,41 @@ class JSLoadingOverlay
     }
 
     /**
-     * Generate overlay html element. Able to override element below:
+     * Generate overlay html element in full page.
      * - class name
      * - background color
      * - opacity
      *
      * @returns {string}
      */
-    generateOverlayElement() {
-        return `<div id="${this.options.overlayIDName}" style="display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ${this.options.overlayOpacity}; background: ${this.options.overlayBackgroundColor}; z-index: 50; width: 100%; height: 100%;"></div><div id="${this.options.spinnerIDName}" style="display: block !important; position: fixed; top: 50%; left: 50%; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;">${this.spinner}</div>`
+    generateAndAddOverlayElement() {
+        let left = '50%';
+        // Check if spinner X offset not zero
+        if (this.options.offsetX !== 0) {
+            left = 'calc(50% + ' + this.options.offsetX + ')'
+        }
+
+        let top = '50%';
+        // Check if spinner Y offset not zero
+        if (this.options.offsetY !== 0) {
+            top = 'calc(50% + ' + this.options.offsetY + ')'
+        }
+
+        // Generate overlay html element in container.
+        if (this.options.containerID && document.body.contains(document.getElementById(this.options.containerID))) {
+            let loadingOverlay = `<div id="${this.options.overlayIDName}" style="display: block !important; position: absolute; top: 0; left: 0; overflow: auto; opacity: ${this.options.overlayOpacity}; background: ${this.options.overlayBackgroundColor}; z-index: 50; width: 100%; height: 100%;"></div><div id="${this.options.spinnerIDName}" style="display: block !important; position: absolute; top: ${top}; left: ${left}; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;">${this.spinner}</div>`
+
+            let containerID = document.getElementById(this.options.containerID);
+
+            containerID.style.position = 'relative';
+            containerID.insertAdjacentHTML('beforeend', loadingOverlay);
+            return;
+        }
+
+        let loadingOverlay = `<div id="${this.options.overlayIDName}" style="display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ${this.options.overlayOpacity}; background: ${this.options.overlayBackgroundColor}; z-index: 50; width: 100%; height: 100%;"></div><div id="${this.options.spinnerIDName}" style="display: block !important; position: fixed; top: ${top}; left: ${left}; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;">${this.spinner}</div>`
+
+        // Insert the overlay html element in body.
+        document.body.insertAdjacentHTML("beforeend", loadingOverlay);
     }
 
     /**

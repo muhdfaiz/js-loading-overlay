@@ -99,9 +99,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var JSLoadingOverlay =
-/*#__PURE__*/
-function () {
+var JSLoadingOverlay = /*#__PURE__*/function () {
   function JSLoadingOverlay() {
     _classCallCheck(this, JSLoadingOverlay);
 
@@ -112,7 +110,11 @@ function () {
       'spinnerColor': '#000',
       'spinnerSize': '3x',
       'overlayIDName': 'overlay',
-      'spinnerIDName': 'spinner'
+      'spinnerIDName': 'spinner',
+      'offsetY': 0,
+      'offsetX': 0,
+      'lockScroll': false,
+      'containerID': null
     };
     this.stylesheetBaseURL = 'https://cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/';
     this.spinner = null;
@@ -172,6 +174,9 @@ function () {
       'timer': 1,
       'triangle-skew-spin': 1
     };
+    this.originalBodyPosition = '';
+    this.originalBodyTop = '';
+    this.originalBodywidth = '';
   }
   /**
    * Show loading overlay including the spinner.
@@ -188,20 +193,33 @@ function () {
 
       this.addSpinnerStylesheet(); // Generate spinner html element.
 
-      this.generateSpinnerElement(); // Generate overlay html element.
+      this.generateSpinnerElement();
 
-      var loadingOverlay = this.generateOverlayElement(); // Insert the overlay html element in body.
+      if (this.options.lockScroll) {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      } // Generate overlay html element in full page.
 
-      document.body.insertAdjacentHTML("beforeend", loadingOverlay);
+
+      this.generateAndAddOverlayElement();
     }
   }, {
     key: "hide",
     value: function hide() {
+      // Unlock scroll.
+      if (this.options.lockScroll) {
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+      }
+
       var stylesheet = document.getElementById('loading-overlay-stylesheet');
-      stylesheet.disabled = true;
-      stylesheet.parentNode.removeChild(stylesheet);
-      document.getElementById(this.options.overlayIDName).remove();
-      document.getElementById(this.options.spinnerIDName).remove();
+
+      if (stylesheet) {
+        stylesheet.disabled = true;
+        stylesheet.parentNode.removeChild(stylesheet);
+        document.getElementById(this.options.overlayIDName).remove();
+        document.getElementById(this.options.spinnerIDName).remove();
+      }
     }
     /**
      * Override default options with user specified options.
@@ -219,7 +237,7 @@ function () {
       }
     }
     /**
-     * Generate overlay html element. Able to override element below:
+     * Generate overlay html element in full page.
      * - class name
      * - background color
      * - opacity
@@ -228,9 +246,33 @@ function () {
      */
 
   }, {
-    key: "generateOverlayElement",
-    value: function generateOverlayElement() {
-      return "<div id=\"".concat(this.options.overlayIDName, "\" style=\"display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ").concat(this.options.overlayOpacity, "; background: ").concat(this.options.overlayBackgroundColor, "; z-index: 50; width: 100%; height: 100%;\"></div><div id=\"").concat(this.options.spinnerIDName, "\" style=\"display: block !important; position: fixed; top: 50%; left: 50%; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;\">").concat(this.spinner, "</div>");
+    key: "generateAndAddOverlayElement",
+    value: function generateAndAddOverlayElement() {
+      var left = '50%'; // Check if spinner X offset not zero
+
+      if (this.options.offsetX !== 0) {
+        left = 'calc(50% + ' + this.options.offsetX + ')';
+      }
+
+      var top = '50%'; // Check if spinner Y offset not zero
+
+      if (this.options.offsetY !== 0) {
+        top = 'calc(50% + ' + this.options.offsetY + ')';
+      } // Generate overlay html element in container.
+
+
+      if (this.options.containerID && document.body.contains(document.getElementById(this.options.containerID))) {
+        var _loadingOverlay = "<div id=\"".concat(this.options.overlayIDName, "\" style=\"display: block !important; position: absolute; top: 0; left: 0; overflow: auto; opacity: ").concat(this.options.overlayOpacity, "; background: ").concat(this.options.overlayBackgroundColor, "; z-index: 50; width: 100%; height: 100%;\"></div><div id=\"").concat(this.options.spinnerIDName, "\" style=\"display: block !important; position: absolute; top: ").concat(top, "; left: ").concat(left, "; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;\">").concat(this.spinner, "</div>");
+
+        var containerID = document.getElementById(this.options.containerID);
+        containerID.style.position = 'relative';
+        containerID.insertAdjacentHTML('beforeend', _loadingOverlay);
+        return;
+      }
+
+      var loadingOverlay = "<div id=\"".concat(this.options.overlayIDName, "\" style=\"display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ").concat(this.options.overlayOpacity, "; background: ").concat(this.options.overlayBackgroundColor, "; z-index: 50; width: 100%; height: 100%;\"></div><div id=\"").concat(this.options.spinnerIDName, "\" style=\"display: block !important; position: fixed; top: ").concat(top, "; left: ").concat(left, "; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;\">").concat(this.spinner, "</div>"); // Insert the overlay html element in body.
+
+      document.body.insertAdjacentHTML("beforeend", loadingOverlay);
     }
     /**
      * Generate spinner html element. Spinner html element must follow template from https://github.danielcardoso.net/load-awesome/
