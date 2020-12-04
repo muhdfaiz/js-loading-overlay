@@ -25,7 +25,8 @@
     "jest": "^24.9.0",
     "request": "^2.88.0",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "xmlhttprequest": "^1.8.0"
   },
   "scripts": {
     "test": "jest",
@@ -37,5 +38,6 @@
   "author": "Muhammad Faiz <muhdfaizhalim@gmail.com>",
   "repository": "https://github.com/muhdfaiz/js-loading-overlay.git",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {}
 }

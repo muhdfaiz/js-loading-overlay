@@ -1,4 +1,5 @@
 const loadingOverlay = require('../src/js-loading-overlay');
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 beforeEach(() => {
     document.body.innerHTML = '';
@@ -15,6 +16,8 @@ beforeEach(() => {
         'offsetX': 0,
         'lockScroll': false,
         'containerID': null,
+        'overlayZIndex': 99998,
+        'spinnerZIndex': 99999,
     };
 });
 
@@ -215,6 +218,8 @@ describe('setOptions function', () => {
             'offsetY': 20,
             'lockScroll': true,
             'containerID': 'table',
+            'overlayZIndex': 99998,
+            'spinnerZIndex': 99999,
         };
 
         loadingOverlay.setOptions(options);
@@ -230,6 +235,8 @@ describe('setOptions function', () => {
         expect(loadingOverlay.options.offsetY).toEqual(options.offsetY);
         expect(loadingOverlay.options.lockScroll).toEqual(options.lockScroll);
         expect(loadingOverlay.options.containerID).toEqual(options.containerID);
+        expect(loadingOverlay.options.spinnerZIndex).toEqual(options.spinnerZIndex);
+        expect(loadingOverlay.options.overlayZIndex).toEqual(options.overlayZIndex);
     });
 
     test('It should not override default options when options parameter not exist.', () => {
@@ -348,5 +355,63 @@ describe('show function', () => {
         expect(document.getElementById(loadingOverlay.options.overlayIDName)).toBeTruthy();
         expect(document.getElementById(loadingOverlay.options.spinnerIDName)).toBeTruthy();
         expect(document.getElementsByTagName('link')[0].getAttribute('href')).toBe(loadingOverlay.spinnerStylesheetURL);
+    });
+
+    test('It should show the loading overlay in container page.', () => {
+        document.body.innerHTML = '<div id="table"><table><tr><th>Company</th><th>Contact</th><th>Country</th></tr><tr><td>Test Company</td><td>Muhammad Faiz</td><td>Malaysia</td></tr></table></div>'
+
+        let defaultOptions = {
+            'overlayBackgroundColor': '#666666',
+            'overlayOpacity': 0.6,
+            'spinnerIcon': 'ball-circus',
+            'spinnerColor': '#000',
+            'spinnerSize': '3x',
+            'overlayIDName': 'overlay',
+            'spinnerIDName': 'spinner',
+            'containerID': 'table'
+        };
+
+        loadingOverlay.show(defaultOptions);
+
+        expect(document.querySelectorAll('body > #' + defaultOptions.overlayIDName).length === 0).toBe(true);
+
+        // Expect overlay and spinner element inside the container.
+        expect(document.getElementById(loadingOverlay.options.containerID).contains(document.getElementById(loadingOverlay.options.overlayIDName))).toBe(true);
+        expect(document.getElementById(loadingOverlay.options.containerID).contains(document.getElementById(loadingOverlay.options.spinnerIDName))).toBe(true);
+
+        expect(document.getElementById(loadingOverlay.options.overlayIDName)).toBeTruthy();
+        expect(document.getElementById(loadingOverlay.options.spinnerIDName)).toBeTruthy();
+        expect(document.getElementsByTagName('link')[0].getAttribute('href')).toBe(loadingOverlay.spinnerStylesheetURL);
+    });
+
+    test('It should show the loading overlay with custom offset of spinner position.', () => {
+        document.body.innerHTML = ''
+
+        let defaultOptions = {
+            'offsetY': '-10px',
+            'offsetX': '20px',
+        };
+
+        loadingOverlay.show(defaultOptions);
+
+        expect(document.querySelectorAll('body > #' + defaultOptions.overlayIDName).length === 0).toBe(true);
+        expect(document.body.innerHTML).toContain('calc(50% + ' + defaultOptions.offsetY);
+        expect(document.body.innerHTML).toContain('calc(50% + ' + defaultOptions.offsetX);
+    });
+
+    test('It should show the loading overlay with custom z-index.', () => {
+        document.body.innerHTML = ''
+
+        let defaultOptions = {
+            'spinnerZIndex': 50,
+            'overlayZIndex': 49
+        };
+
+        loadingOverlay.show(defaultOptions);
+
+        expect(document.querySelectorAll('body > #' + defaultOptions.overlayIDName).length === 0).toBe(true);
+
+        expect(document.getElementById(loadingOverlay.options.overlayIDName).style.zIndex).toBe(defaultOptions.overlayZIndex.toString());
+        expect(document.getElementById(loadingOverlay.options.spinnerIDName).style.zIndex).toBe(defaultOptions.spinnerZIndex.toString());
     });
 });

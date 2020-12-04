@@ -114,7 +114,9 @@ var JSLoadingOverlay = /*#__PURE__*/function () {
       'offsetY': 0,
       'offsetX': 0,
       'lockScroll': false,
-      'containerID': null
+      'containerID': null,
+      'spinnerZIndex': 99999,
+      'overlayZIndex': 99998
     };
     this.stylesheetBaseURL = 'https://cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/';
     this.spinner = null;
@@ -174,9 +176,6 @@ var JSLoadingOverlay = /*#__PURE__*/function () {
       'timer': 1,
       'triangle-skew-spin': 1
     };
-    this.originalBodyPosition = '';
-    this.originalBodyTop = '';
-    this.originalBodywidth = '';
   }
   /**
    * Show loading overlay including the spinner.
@@ -203,6 +202,10 @@ var JSLoadingOverlay = /*#__PURE__*/function () {
 
       this.generateAndAddOverlayElement();
     }
+    /**
+     * Hide Loading Overlay
+     */
+
   }, {
     key: "hide",
     value: function hide() {
@@ -212,7 +215,7 @@ var JSLoadingOverlay = /*#__PURE__*/function () {
         document.documentElement.style.overflow = '';
       }
 
-      var stylesheet = document.getElementById('loading-overlay-stylesheet');
+      var stylesheet = document.getElementById('loading-overlay-stylesheet'); // Remove stylesheet.
 
       if (stylesheet) {
         stylesheet.disabled = true;
@@ -270,7 +273,7 @@ var JSLoadingOverlay = /*#__PURE__*/function () {
         return;
       }
 
-      var loadingOverlay = "<div id=\"".concat(this.options.overlayIDName, "\" style=\"display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ").concat(this.options.overlayOpacity, "; background: ").concat(this.options.overlayBackgroundColor, "; z-index: 50; width: 100%; height: 100%;\"></div><div id=\"").concat(this.options.spinnerIDName, "\" style=\"display: block !important; position: fixed; top: ").concat(top, "; left: ").concat(left, "; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: 9999;\">").concat(this.spinner, "</div>"); // Insert the overlay html element in body.
+      var loadingOverlay = "<div id=\"".concat(this.options.overlayIDName, "\" style=\"display: block !important; position: fixed; top: 0; left: 0; overflow: auto; opacity: ").concat(this.options.overlayOpacity, "; background: ").concat(this.options.overlayBackgroundColor, "; z-index: ").concat(this.options.overlayZIndex, "; width: 100%; height: 100%;\"></div><div id=\"").concat(this.options.spinnerIDName, "\" style=\"display: block !important; position: fixed; top: ").concat(top, "; left: ").concat(left, "; -webkit-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); z-index: ").concat(this.options.spinnerZIndex, ";\">").concat(this.spinner, "</div>"); // Insert the overlay html element in body.
 
       document.body.insertAdjacentHTML("beforeend", loadingOverlay);
     }

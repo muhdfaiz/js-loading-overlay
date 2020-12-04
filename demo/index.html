@@ -482,6 +482,20 @@
     </div>
 
     <div class="row mt-4">
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary" style="width: 200px" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'overlayZIndex': 49});">
+                Custom Overlay Z-Index
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-5">
+            <div class="btn btn-primary ml-5" style="width: 200px" onclick="JsLoadingOverlay.show({'spinnerIcon': 'cog', 'spinnerZIndex': 50});">
+                Custom Spinner Z-Index
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
         <div class="col-12 text-center">
             <h4>Show loading overlay within the container</h4>
         </div>
@@ -553,6 +567,8 @@
 		    'offsetX': 0,
 		    'lockScroll': false,
 		    'containerID': null,
+            'overlayZIndex': 99998,
+		    'spinnerZIndex': 99999,
         };
 
     	if (e.target.contains(document.getElementById('overlay'))) {
