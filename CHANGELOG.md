@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to Semantic Versioning.
 
+## 1.2.0 - 2020-12-05
+
+- Add option to specify custom overlay z-index.
+- Add option to specify custom spinner z-index.
+
 ## 1.1.0 - 2020-12-02
 
 - Add option to adjust the spinner position for X axis and Y axis.
