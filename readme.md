@@ -1,14 +1,13 @@
 ## JS Loading Overlay
-
-Display loading overlay easily and beautifully in your application. JS loading overlay using awesome spinner from [Load Awesome](https://github.danielcardoso.net/load-awesome/animations.html). It contains 52 spinner you can choose.
-
-### Build and Coverage Status
 [![Build Status](https://img.shields.io/github/workflow/status/muhdfaiz/js-loading-overlay/JS%20Loading%20overlay)](https://github.com/muhdfaiz/js-loading-overlay/actions?query=branch%3Amaster)
 [![Coverage Status](https://coveralls.io/repos/github/muhdfaiz/js-loading-overlay/badge.svg?branch=master)](https://coveralls.io/github/muhdfaiz/js-loading-overlay?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/muhdfaiz/js-loading-overlay/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/muhdfaiz/js-loading-overlay/?branch=master) 
 ![Downloads](https://img.shields.io/npm/dt/js-loading-overlay)
 [![Version](https://img.shields.io/npm/v/js-loading-overlay)](https://www.npmjs.com/package/js-loading-overlay)
 ![Size](https://img.shields.io/bundlephobia/min/js-loading-overlay)
+
+Display loading overlay easily and beautifully in your application. JS loading overlay using awesome spinner from [Load Awesome](https://github.danielcardoso.net/load-awesome/animations.html). It contains 52 spinner you can choose.
+
 ## Features
 
 - **Full page loading overlay.** Able to show full page loading overlay. 
