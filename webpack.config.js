@@ -2,10 +2,6 @@ const path = require("path");
 const TerserPlugin = require('terser-webpack-plugin');
 const env = process.env.NODE_ENV;
 
-const config = {
-    mode: env || 'development'
-};
-
 module.exports = (env, options) => {
     return {
         devtool: "source-map",
