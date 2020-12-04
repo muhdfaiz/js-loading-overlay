@@ -5,3 +5,4 @@ npm-debug.log
 coverage
 .gitignore
 .directory
+.DS_Store
